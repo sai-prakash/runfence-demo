@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RunFence — Design-Partner Kit (preview)</title>
+  <meta name="description" content="Runtime control before tool-using agents act: budgets, freshness, human approval. Demo-only preview." />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <main>
+    <span class="badge">Demo-only · Design-Partner Kit preview</span>
+    <h1>Stop unsafe or runaway agent tool calls before they hit the world.</h1>
+    <p class="sub">RunFence is a thin wrap around write tools — hard per-run budgets, pre-action freshness, and human approval for irreversible actions.</p>
+    <p class="honesty">Early design-partner stage. Confirmed customers: 0. No enterprise logos claimed.</p>
+
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#demos">View three demos</a>
+      <a class="btn btn-secondary" href="#waitlist">Design-partner waitlist</a>
+    </div>
+
+    <h2>Problem</h2>
+    <ul>
+      <li>Agents retry / loop and burn tokens (public cost postmortems).</li>
+      <li>Tools act on stale context after the world moved.</li>
+      <li>Irreversible tools (refund, book, send) fire without a human gate.</li>
+    </ul>
+    <p class="sub" style="font-size:0.9rem">Framed from public research — not from invented “Company X” case studies.</p>
+
+    <h2 id="demos">Three gates</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h3 class="code-budget"><code>BUDGET_EXCEEDED</code></h3>
+        <p>Hard kill when the run crosses a step / token ceiling — not a warning.</p>
+        <p class="mono">npm run demo:budget</p>
+      </div>
+      <div class="card">
+        <h3 class="code-stale"><code>STALE_EVIDENCE</code></h3>
+        <p>Block writes if declared evidence went stale after the snapshot.</p>
+        <p class="mono">npm run demo:stale</p>
+      </div>
+      <div class="card">
+        <h3 class="code-approval"><code>NEEDS_APPROVAL</code></h3>
+        <p>Hold irreversible tools until a human approves once.</p>
+        <p class="mono">npm run demo:approval</p>
+      </div>
+    </div>
+    <p style="margin-top:1rem">Run the local kit from the <a href="../README.md">demo README</a>; see <a href="https://github.com/sai-prakash/runfence-demo">github.com/sai-prakash/runfence-demo</a>.</p>
+
+    <h2>What’s included</h2>
+    <ul>
+      <li>Fake MCP fixtures (<code>refund_customer</code>, <code>book_slot</code>) — not live Stripe/booking.</li>
+      <li>Middleware wrap + JSONL audit of allow vs block.</li>
+      <li>One-command demos for the three reason codes.</li>
+    </ul>
+
+    <h2>What’s not</h2>
+    <ul>
+      <li>SLA, SSO, multi-tenant cloud, prod liability.</li>
+      <li>Full agent framework, voice agents, browser shopping bots.</li>
+      <li>Real money movement in the demo path.</li>
+    </ul>
+
+    <h2 id="waitlist">Design-partner waitlist</h2>
+    <p class="sub">Free while we learn. A future paid kit is intentionally hidden for now.</p>
+    <form class="waitlist" id="waitlist-form">
+      <input type="email" name="email" required placeholder="you@company.com" autocomplete="email" />
+      <button type="submit">Join waitlist</button>
+    </form>
+    <div id="signup-msg" role="status"></div>
+
+
+    <footer>
+      <p>RunFence · Company OS · Demo-only · No enterprise customers claimed</p>
+      <a href="../README.md">View demos</a>
+    </footer>
+  </main>
+  <script>
+    const form = document.getElementById('waitlist-form');
+    const msg = document.getElementById('signup-msg');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      msg.className = '';
+      msg.textContent = 'Saving…';
+      const email = new FormData(form).get('email');
+      try {
+        const res = await fetch('https://runfence-landing.vercel.app/api/signup', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email }),
+        });
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok) throw new Error(data.error || 'Signup failed');
+        msg.className = 'ok';
+        msg.textContent = 'You’re on the waitlist (saved to local waitlist.jsonl — not a product database).';
+        form.reset();
+      } catch (err) {
+        msg.className = 'err';
+        msg.textContent = err.message || 'Could not save. Is npm run landing running?';
+      }
+    });
+  </script>
+</body>
+</html>
