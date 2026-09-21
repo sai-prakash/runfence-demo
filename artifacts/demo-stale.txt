@@ -1,0 +1,7 @@
+=== RunFence demo:stale ===
+1. Agent reads balance for ORD-1001: $50 @ 2026-09-21T18:15:07.062Z
+2. Agent decides to refund $25 based on that snapshot.
+3. World moves: balance mutated to $5 at 2026-09-21T18:15:07.070Z
+4. Agent calls refund_customer with stale balance_snapshot_at …
+BLOCKED reason=STALE_EVIDENCE detail=balance mutated at 2026-09-21T18:15:07.070Z after snapshot 2026-09-21T18:15:07.062Z
+PASS: STALE_EVIDENCE hard kill

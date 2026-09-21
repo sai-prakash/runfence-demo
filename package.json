@@ -1,0 +1,20 @@
+{
+  "name": "runfence-demo",
+  "version": "0.0.1",
+  "description": "RunFence Design-Partner Kit demo \u2014 hard-kill gates for tool-using agents (STALE_EVIDENCE, BUDGET_EXCEEDED, NEEDS_APPROVAL)",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "demo:stale": "tsx src/demos/stale.ts",
+    "demo:budget": "tsx src/demos/budget.ts",
+    "demo:approval": "tsx src/demos/approval.ts",
+    "approve": "tsx src/approve.ts",
+    "landing": "node landing/server.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3"
+  }
+}

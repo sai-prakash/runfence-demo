@@ -1,0 +1,5 @@
+node_modules/
+audit/*.jsonl
+.approvals/
+landing/waitlist.jsonl
+landing/waitlist.jsonl.tmp

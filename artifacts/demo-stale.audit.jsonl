@@ -1,0 +1,1 @@
+{"ts":"2026-09-21T18:15:07.071Z","run_id":"demo-stale","tool":"refund_customer","decision":"block","reason":"STALE_EVIDENCE","arg_hash":"a6083872d45f4e13","step":1,"tokens_used":100,"detail":"balance mutated at 2026-09-21T18:15:07.070Z after snapshot 2026-09-21T18:15:07.062Z"}

@@ -1,0 +1,9 @@
+=== RunFence demo:approval ===
+1. Attempt refund_customer WITHOUT approval token …
+BLOCKED reason=NEEDS_APPROVAL detail=write tool refund_customer requires approval file at /workspace/company-os/ship/runfence-demo/.approvals/token
+PASS phase1: NEEDS_APPROVAL
+2. Human ran approve → wrote /workspace/company-os/ship/runfence-demo/.approvals/token
+3. Retry refund_customer WITH approval …
+ALLOWED reason=PASS result={"ok":true,"tool":"refund_customer","order_id":"ORD-1001","refunded":10,"remaining_balance":40,"note":"FAKE — no real money moved"}
+PASS phase2: approval token consumed (one-shot)
+PASS: NEEDS_APPROVAL then PASS after approve

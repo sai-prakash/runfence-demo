@@ -1,0 +1,4 @@
+{"ts":"2026-09-21T18:15:07.874Z","run_id":"demo-budget","tool":"refund_customer","decision":"allow","reason":"PASS","arg_hash":"62aa6cbdb5230a40","step":1,"tokens_used":100}
+{"ts":"2026-09-21T18:15:07.875Z","run_id":"demo-budget","tool":"refund_customer","decision":"allow","reason":"PASS","arg_hash":"59d2445846353ee5","step":2,"tokens_used":200}
+{"ts":"2026-09-21T18:15:07.875Z","run_id":"demo-budget","tool":"refund_customer","decision":"allow","reason":"PASS","arg_hash":"59d2445846353ee5","step":3,"tokens_used":300}
+{"ts":"2026-09-21T18:15:07.875Z","run_id":"demo-budget","tool":"refund_customer","decision":"block","reason":"BUDGET_EXCEEDED","arg_hash":"59d2445846353ee5","step":4,"tokens_used":400,"detail":"steps 4 > max 3"}

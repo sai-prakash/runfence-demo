@@ -1,0 +1,2 @@
+{"ts":"2026-09-21T18:15:08.678Z","run_id":"demo-approval","tool":"refund_customer","decision":"block","reason":"NEEDS_APPROVAL","arg_hash":"0d048f0dff7ca2ab","step":1,"tokens_used":100,"detail":"write tool refund_customer requires approval file at /workspace/company-os/ship/runfence-demo/.approvals/token"}
+{"ts":"2026-09-21T18:15:08.679Z","run_id":"demo-approval","tool":"refund_customer","decision":"allow","reason":"PASS","arg_hash":"0d048f0dff7ca2ab","step":2,"tokens_used":200}
