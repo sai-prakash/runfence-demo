@@ -45,7 +45,7 @@
         <p class="mono">npm run demo:approval</p>
       </div>
     </div>
-    <p style="margin-top:1rem">Run the local kit from the <a href="../README.md">demo README</a>; a public repo URL is not designated yet.</p>
+    <p style="margin-top:1rem">Run the local kit from the <a href="../README.md">demo README</a>; see <a href="https://github.com/sai-prakash/runfence-demo">github.com/sai-prakash/runfence-demo</a>.</p>
 
     <h2>What’s included</h2>
     <ul>
@@ -84,7 +84,7 @@
       msg.textContent = 'Saving…';
       const email = new FormData(form).get('email');
       try {
-        const res = await fetch('/signup', {
+        const res = await fetch('/api/signup', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email }),

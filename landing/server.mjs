@@ -36,7 +36,7 @@ function isEmail(s) {
 const server = http.createServer(async (req, res) => {
   const url = new URL(req.url || '/', `http://${req.headers.host || 'localhost'}`);
 
-  if (req.method === 'POST' && url.pathname === '/signup') {
+  if (req.method === 'POST' && url.pathname === '/signup' || url.pathname === '/api/signup') {
     try {
       const raw = await readBody(req);
       const body = JSON.parse(raw || '{}');

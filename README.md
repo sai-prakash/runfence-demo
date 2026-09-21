@@ -1,3 +1,5 @@
+**Public repo:** https://github.com/sai-prakash/runfence-demo
+
 # RunFence Demo
 
 **RunFence** — a thin runtime control layer that hard-kills tool-using agents on blown budgets, stale evidence, or missing human approval before irreversible writes.
