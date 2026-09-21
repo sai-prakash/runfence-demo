@@ -1,6 +1,5 @@
 {
   "version": 2,
-  "name": "runfence-landing",
   "cleanUrls": true,
   "rewrites": [
     { "source": "/signup", "destination": "/api/signup" }
